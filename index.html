@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Gửi Người Anh Yêu</title>
+    <style>
+        body {
+            background-color: #1a001a;
+            color: #ff66b2;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding-top: 20vh;
+            overflow: hidden;
+        }
+        h1 { font-size: 3rem; animation: pulse 1.5s infinite; }
+        p { font-size: 1.5rem; color: #fff; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        /* Hiệu ứng trái tim bay lung linh */
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: float 5s linear infinite;
+            opacity: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💖 I LOVE YOU 💖</h1>
+    <p>Đi chơi con viên lãn làn với anh không bé yêu!</p>
+
+
+    <!-- Thêm nhạc nền lãng mạn tại đây -->
+    <audio autoplay loop controls>
+    <source src="https://files.catbox.moe/b9gegy.mp3" type="audio/mpeg">
+</audio>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
